@@ -9,6 +9,7 @@ Original file is located at
 
 import tkinter as tk
 from tkinter import messagebox
+from tkinter import simpledialog
 
 class AlmitasPeludasApp(tk.Tk):
     def __init__(self):
@@ -86,9 +87,28 @@ class AlmitasPeludasApp(tk.Tk):
         btn_finalizar.pack(pady=20, ipadx=15, ipady=7)
 
     def actualizar_dato(self, tipo):
-        """Función temporal para simular el registro de datos con un mensaje."""
-        messagebox.showinfo("Dato registrado", f"Has registrado un dato para '{tipo}'. Esta función se expandirá con más botones.")
-        # Aquí iría la lógica para pasar a una nueva pantalla o abrir un menú de opciones.
+        """Pide y guarda un dato según el tipo seleccionado."""
+        valor = None
+
+        if tipo == "Raza":
+            valor = simpledialog.askstring("Raza", "Ingresa la raza del perro:", parent=self)
+        elif tipo == "Edad":
+            valor = simpledialog.askinteger("Edad", "Ingresa la edad (en años):", minvalue=0, maxvalue=30, parent=self)
+        elif tipo == "Nudos":
+            si = messagebox.askyesno("Nudos", "¿Tiene nudos?", parent=self)
+            valor = "Sí" if si else "No"
+        elif tipo == "Uñas":
+            si = messagebox.askyesno("Uñas", "¿Requiere corte de uñas?", parent=self)
+            valor = "Requiere corte" if si else "No requiere"
+        elif tipo == "Estado General":
+            valor = simpledialog.askstring("Estado general", "Describe el estado general (e.g., Excelente/Bueno/Regular/Malo):", parent=self)
+
+        # Si el usuario canceló, no hacer nada
+        if valor in (None, ""):
+            return
+
+        self.datos_perro[tipo] = valor
+        messagebox.showinfo("Dato registrado", f"{tipo}: {valor}")
 
     def finalizar_registro(self):
         """Muestra el resumen de los datos y los 'guarda'."""
@@ -100,8 +120,10 @@ class AlmitasPeludasApp(tk.Tk):
 
         resumen = f"Lugar: {self.datos_perro.get('Lugar', 'N/A')}\n"
         resumen += f"Nombre: {self.datos_perro.get('Nombre', 'N/A')}\n"
-        resumen += "---"
-        # Aquí se mostrarían más datos a medida que los añadas
+        # Agregar dinámicamente el resto de los datos capturados
+        for clave, valor in self.datos_perro.items():
+            if clave not in ("Lugar", "Nombre"):
+                resumen += f"{clave}: {valor}\n"
         tk.Label(self.frame_actual, text=resumen, font=("Arial", 12)).pack(pady=10)
 
         # Simula el guardado de datos
