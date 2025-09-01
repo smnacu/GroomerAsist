@@ -1,0 +1,14 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run Kivy app (GroomerAsist)",
+			"type": "shell",
+			"command": "C:\\Users\\smnac\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+			"args": [
+				"c:\\Users\\smnac\\Documents\\GitHub\\GroomerAsist\\mobile_app\\main.py"
+			],
+			"problemMatcher": []
+		}
+	]
+}
