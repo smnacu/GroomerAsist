@@ -1,0 +1,13 @@
+{
+  "claude.mcpServers": {
+    "groomer-asist-mcp": {
+      "command": "C:\\Users\\smnac\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "args": ["-m", "mcp_server"],
+      "transport": "stdio",
+      "cwd": "c:\\Users\\smnac\\Documents\\GitHub\\GroomerAsist",
+      "env": {
+        "PYTHONUNBUFFERED": "1"
+      }
+    }
+  }
+}
