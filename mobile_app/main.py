@@ -119,14 +119,14 @@ ScreenManager:
             Rectangle:
                 pos: self.x, self.top - (dp(3) if app.compacto else dp(4))
                 size: self.width, (dp(3) if app.compacto else dp(4))
-    BrandBar:
-    Label:
+        BrandBar:
+        Label:
             text: '¿Dónde estás trabajando?'
             font_size: '20sp'
             color: 1,1,1,1
             size_hint_y: None
             height: dp(36) if app.compacto else dp(40)
-    BoxLayout:
+        BoxLayout:
             spacing: dp(8) if app.compacto else dp(10)
             size_hint_y: None
             height: dp(78) if app.compacto else dp(86)
@@ -139,8 +139,8 @@ ScreenManager:
                 text: '🏢  Local'
                 on_press: app.bump_button(self)
                 on_release: app.set_lugar('Local')
-    Widget:
-    BoxLayout:
+        Widget:
+        BoxLayout:
             size_hint_y: None
             height: dp(40) if app.compacto else dp(46)
             spacing: dp(8)
@@ -157,8 +157,8 @@ ScreenManager:
     on_pre_enter: app.anim_screen(self)
     BoxLayout:
         orientation: 'vertical'
-    padding: dp(12) if app.compacto else dp(18)
-    spacing: dp(10) if app.compacto else dp(12)
+        padding: dp(12) if app.compacto else dp(18)
+        spacing: dp(10) if app.compacto else dp(12)
         canvas.before:
             Color:
                 rgba: 0.02, 0.02, 0.03, 1
@@ -170,15 +170,15 @@ ScreenManager:
             Rectangle:
                 pos: self.x, self.top - dp(4)
                 size: self.width, dp(4)
-    BrandBar:
-    Label:
+        BrandBar:
+        Label:
             id: titulo
             text: 'Registrando en ' + app.lugar
             font_size: '18sp'
             color: 1,1,1,1
             size_hint_y: None
             height: dp(30) if app.compacto else dp(34)
-    BoxLayout:
+        BoxLayout:
             spacing: dp(8) if app.compacto else dp(10)
             size_hint_y: None
             height: dp(36) if app.compacto else dp(40)
@@ -191,7 +191,7 @@ ScreenManager:
                 id: cliente
                 hint_text: 'Cliente (opcional)'
                 multiline: False
-    BoxLayout:
+        BoxLayout:
             size_hint_y: None
             height: dp(36)
             spacing: dp(8)
@@ -207,7 +207,7 @@ ScreenManager:
             Chip:
                 text: 'Uñas'
                 on_release: app.ask_booleano('Uñas', '¿Requiere corte de uñas?')
-    BoxLayout:
+        BoxLayout:
             size_hint_y: None
             height: dp(36)
             spacing: dp(8)
@@ -220,7 +220,7 @@ ScreenManager:
             Chip:
                 text: 'Estado'
                 on_release: app.ask_texto('Estado General', 'Describe el estado:')
-    BoxLayout:
+        BoxLayout:
             size_hint_y: None
             height: dp(36)
             spacing: dp(8)
@@ -236,7 +236,7 @@ ScreenManager:
             Chip:
                 text: 'Foto'
                 on_release: app.tomar_foto()
-    BoxLayout:
+        BoxLayout:
             size_hint_y: None
             height: dp(46)
             spacing: dp(10)
@@ -336,8 +336,8 @@ ScreenManager:
     on_pre_enter: app.anim_screen(self)
     BoxLayout:
         orientation: 'vertical'
-    padding: dp(12) if app.compacto else dp(18)
-    spacing: dp(8) if app.compacto else dp(10)
+        padding: dp(12) if app.compacto else dp(18)
+        spacing: dp(8) if app.compacto else dp(10)
         canvas.before:
             Color:
                 rgba: 0.02, 0.02, 0.03, 1
@@ -349,8 +349,8 @@ ScreenManager:
             Rectangle:
                 pos: self.x, self.top - dp(4)
                 size: self.width, dp(4)
-    BrandBar:
-    Label:
+        BrandBar:
+        Label:
             text: 'Registro listo'
             font_size: '20sp'
             color: 1,1,1,1
@@ -392,8 +392,8 @@ ScreenManager:
     on_pre_enter: app.anim_screen(self)
     BoxLayout:
         orientation: 'vertical'
-    padding: dp(12) if app.compacto else dp(18)
-    spacing: dp(8) if app.compacto else dp(10)
+        padding: dp(12) if app.compacto else dp(18)
+        spacing: dp(8) if app.compacto else dp(10)
         canvas.before:
             Color:
                 rgba: 0.02, 0.02, 0.03, 1
@@ -405,8 +405,8 @@ ScreenManager:
             Rectangle:
                 pos: self.x, self.top - dp(4)
                 size: self.width, dp(4)
-    BrandBar:
-    Label:
+        BrandBar:
+        Label:
             id: titulo
             text: 'Historial de registros'
             font_size: '20sp'
